@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paychangu Payment</title>
+    <script src="https://in.paychangu.com/js/popup.js"></script>
+    <script>
+        // Trigger Paychangu payment when the page loads
+        window.onload = function() {
+            makePayment({{ amount }});
+        };
+
+        function makePayment(amount) {
+            PaychanguCheckout({
+                "public_key": "PUB-TEST-dtUq1ia55J3soGqBi8S0uRm1DWFEinfV",
+                "tx_ref": '' + Math.floor((Math.random() * 1000000000) + 1),
+                "amount": amount,
+                "currency": "MWK",
+                "callback_url": "{{ url_for('payment_callback', _external=True) }}",
+                "return_url": "{{ url_for('create_dept', _external=True) }}",
+                "customer": {
+                    "email": "vituluthersibale@gmail.com",  // Replace with actual user email
+                    "first_name": "John",
+                    "last_name": "Doe",
+                },
+                "customization": {
+                    "title": "Add Money to Wallet",
+                    "description": "Deposit {{ amount }} MWK"
+                },
+                "meta": {
+                    "uuid": "uuid",
+                    "response": "Response"
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h3>Processing your payment of MWK {{ amount }}...</h3>
+</body>
+</html>

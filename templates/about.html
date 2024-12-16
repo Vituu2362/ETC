@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en-US" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>What is PlateSync?</title>
+
+    <!-- Flask static file reference -->
+    <link rel='stylesheet' id='app/0-css' href="{{ url_for('static', filename='css/app.9b0642.css') }}" media='all' />
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}" id="jquery-core-js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+
+
+      <div class="header-wrapper sticky-top">
+        <div class="container-fluid infobar">
+          <div class="container-xl">
+            <div class="row">
+              <div class="col-12 col-lg-7 d-flex align-items-center">
+                <div class="row flex-nowrap ticker-box flex-grow-1 overflow-hidden py-2" role="alert">
+                  <div class="ticker-intro col">
+                    ETCS with ANPR
+                  </div>
+                  <div class="ticker-container col">
+                    <div class="ticker-wrapper">
+                      <div class="ticker-wrap">
+                        <div class="ticker">
+                          <div class="ticker__item">
+                            <p style="color: red;">Electronic Toll Collection System With Automatic Number Plate Recognition Using TensorFlow and OpenCV</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-5 d-flex align-items-center justify-content-end pe-0">
+                <div class="dropdown">
+                  <button class="btn btn-login dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false">
+                    My Account <i class="fa-solid fa-user-large"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="track-link dropdown-item" href="" target="_blank">Sign Up</a></li>
+                    <li><a class="track-link dropdown-item" href="" target="_blank">Login</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <header>
+          <div class="navbar navbar-expand-lg container-xl">
+    <a class="navbar-brand track-link d-flex flex-column align-items-center" href="{{ url_for('welcome') }}" title="PlateSync">
+        <!-- Image logo placed above the text -->
+        <img src="{{ url_for('static', filename='user_home_files/logo.png') }}" alt="PlateSync Logo" width="72" height="72">
+    </a>
+            <div class="navbar-collapse-wrapper navbar-collapse order-last order-xl-0">
+              <nav class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" aria-label="Primary">
+                <div class="navbar-collapse-container d-flex">
+                  <div class="navbar-wrapper d-flex">
+                    <ul id="menu-primary" class="navbar-nav mb-auto mb-lg-0">
+                        <li class="menu-item nav-item">
+                            <a href="{{ url_for('welcome') }}" class="nav-link active">Home</a>
+                          </li>
+                      <li class="menu-item nav-item">
+                        <a href="{{ url_for('create_dept') }}" class="nav-link active">E-Wallet</a>
+                      </li>
+                      <li class="menu-item nav-item">
+                        <a href="{{ url_for('price_table') }}" class="track-link nav-link">Toll Fees</a>
+                      </li>
+                      <li class="menu-item nav-item">
+                        <a href="{{ url_for('price_table') }}" class="track-link nav-link">Receipt</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <div id="particles-js"></div> <!-- Particle container -->
+    <div class="overlay"></div> <!-- Optional overlay if you want to darken the background -->
+    <div class="container">
+      </div>
+      </div>
+
+      <main id="main" class="main">
+        <section class="section__banner fluid-container">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <img src="{{ url_for('static', filename='images/chingeni.png') }}" alt="What is PlateSync image">
+                </picture>
+                <div class="banner-gradient"></div>
+                <div class="banner-content" style="background-image: url('{{ url_for('static', filename='images/banner-orange.bdf521.svg') }}');">
+                  <div class="banner-text">
+                    <h1>What is PlateSync</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section__intro container-lg">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+              <h4><strong>PlateSync: The Future of Toll Payments in Malawi</strong></h4>
+              <p>PlateSync isn’t just a toll payment system. It’s a hassle-free, time-saving solution to streamline your journeys across Malawi's toll gates. Whether you're cruising through Chingeni Toll Plaza or Kalinyeke Toll Gate, PlateSync offers a seamless experience that eliminates the stress of manual toll payments. It’s your shortcut to smoother commutes, reliable road trips, and the freedom to focus on what matters—getting to your destination.</p>
+              <p>With PlateSync, you can bypass the queues and take advantage of Malawi’s expanding toll infrastructure in the smartest way possible. Designed to keep the roads well-maintained and ensure every journey is efficient and stress-free, PlateSync is your key to a faster, smarter, and more convenient travel experience across Malawi.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section__content section--color-green">
+          <div class="container-lg">
+            <div class="row justify-content-center flex-row-reverse">
+              <div class="col-12 col-md-6 image-col">
+                <img class="img-fluid" loading="lazy" src="{{ url_for('static', filename='images/plaza.png') }}" alt="about PlateSync image">
+              </div>
+              <div class="col-12 col-md-6">
+                <p><strong>PlateSync's journey began with the vision to modernize toll collection across Malawi's growing road network. With increasing traffic at key points like the Chingeni Toll Plaza and Kalinyeke Toll Gate, the need for an efficient, automated toll payment system became clear. In response, PlateSync was developed as a smart solution to reduce congestion, eliminate payment delays, and enhance the overall driving experience for motorists.</strong></p>
+                <p>Malawi’s toll infrastructure is an essential part of keeping its highways well-maintained and future-ready. With the implementation of PlateSync, toll payments are now streamlined, ensuring faster passage through busy toll gates. The system is designed to support the country’s growth, allowing drivers to move smoothly through major routes without the hassle of manual payments.</p>
+                <p>Since its inception, PlateSync has helped thousands of vehicles pass through the tolls every day, providing an efficient, reliable, and stress-free way to travel across Malawi. Managed by a dedicated team, PlateSync continues to play a vital role in ensuring that drivers experience safe, swift, and seamless journeys across the country’s road network.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-12 col-lg-3 d-flex align-items-center mb-4 mb-lg-0">
+    <!-- Flex container to align text and image horizontally -->
+    <h3 class="mb-0 me-2">PlateSync</h3> <!-- Adds right margin to space out text from logo -->
+    <div class="footer-logo">
+        <a href="https://www.aleatica.com/en/home-eng" target="_blank">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PlateSync Logo" width="48" height="48">
+        </a>
+    </div>
+</div>
+
+            <div class="col-12 col-md-4 col-lg-3 my-4 my-md-0">
+              <p>Effortless Toll Payments, Seamless Journeys.</p>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-3">
+              <span>CONNECT WITH US:</span>
+              <ul class="social list-inline d-inline-block ms-4">
+                <li class="list-inline-item">
+                  <a href="https://en-gb.facebook.com" title="Facebook" target="_blank">
+                    <i class="fa-brands fa-square-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://twitter.com" title="Twitter" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="http://www.linkedin.com" title="LinkedIn" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="{{ url_for('static', filename='js/vendor.c6de8d.js') }}" id="app/0-js"></script>
+      <script src="{{ url_for('static', filename='js/app.953c48.js') }}" id="app/1-js"></script>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    particlesJS('particles-js',
+    {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
+    </div>
+  </body>
+</html>

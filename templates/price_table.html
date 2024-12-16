@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-US" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' id='app/0-css' href="{{ url_for('static', filename='css/app.9b0642.css') }}" media='all' />
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}?ver=3.7.1" id="jquery-core-js"></script>
+  </head>
+
+  <body class="page page-id-50804 wp-embed-responsive pricing-tables no-banner">
+    
+    <div id="app">
+      <a id="skip-to-content" class="visually-hidden-focusable" href="index.html#main">
+        Skip to main content
+      </a>
+
+      <div class="header-wrapper sticky-top">
+        <div class="container-fluid infobar">
+          <div class="container-xl">
+            <div class="row">
+              <div class="col-12 col-lg-7 d-flex align-items-center">
+                <div class="row flex-nowrap ticker-box flex-grow-1 overflow-hidden py-2" role="alert">
+                  <div class="ticker-intro col">
+                    ETCS with ANPR
+                  </div>
+                  <div class="ticker-container col">
+                    <div class="ticker-wrapper">
+                      <div class="ticker-wrap">
+                        <div class="ticker">
+                          <div class="ticker__item">
+                            <p style="color: red;">Electronic Toll Collection System With Automatic Number Plate Recognition Using TensorFlow and OpenCV</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-5 d-flex align-items-center justify-content-end pe-0">
+                <div class="dropdown">
+                  <button class="btn btn-login dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false">
+                    My Account <i class="fa-solid fa-user-large"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="track-link dropdown-item" href="{{ url_for('register') }}" target="_blank">Sign Up</a></li>
+                    <li><a class="track-link dropdown-item" href="{{ url_for('login') }}" target="_blank">Login</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <header>
+          <div class="navbar navbar-expand-lg container-xl">
+            <a class="navbar-brand track-link" href="{{ url_for('welcome') }}" title="PlateSync">
+              <svg xmlns="http://www.w3.org/2000/svg" id="headerLogo" viewBox="0 0 1026.71 259.2">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: #fff;
+                      stroke-width: 0px;
+                    }
+                  </style>
+                </defs>
+              </svg>
+            </a>
+            <div class="navbar-collapse-wrapper navbar-collapse order-last order-xl-0">
+              <nav class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" aria-label="Primary">
+                <div class="navbar-collapse-container d-flex">
+                  <div class="navbar-wrapper d-flex">
+                    <ul id="menu-primary" class="navbar-nav mb-auto mb-lg-0">
+                      <li id="menu-item-47955" class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-47955"><a href="{{ url_for('welcome') }}" class="track-link nav-link">Home</a></li>
+                      <li id="menu-item-51001" class="menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-51001"><a href="{{ url_for('create_dept') }}" class="track-link nav-link">E-Wallet</a></li>
+                      <li class="nav-item">
+
+                        <a href="{{ url_for('about')}}" class="nav-link">About</a>
+                      </li>
+                      <li id="menu-item-41397" class="menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-41397"><a href="" class="track-link nav-link">Contact Us</a></li>
+                    </ul>
+                  </div>
+                  <a href="https://customers.m6toll.co.uk/account-creation" class="track-link btn btn-outline-light mb-3 d-lg-none" target="_blank">Sign Up</a>
+                  <a href="https://customers.m6toll.co.uk/login" class="track-link btn btn-outline-light mb-3 d-lg-none" target="_blank">Login</a>
+                  <ul class="social list-inline d-lg-none text-center">
+                    <li class="list-inline-item">
+                      <a href="https://en-gb.facebook.com/M6tollRoad/" title="Facebook" target="_blank">
+                        <i class="social-icon fa-brands fa-square-facebook"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="https://twitter.com/m6tollroad" title="Twitter" target="_blank">
+                        <i class="social-icon fa-brands fa-x-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="http://www.linkedin.com/company/midland-expressway-limited" title="LinkedIn" target="_blank">
+                        <i class="social-icon fa-brands fa-linkedin"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <button class="navbar-toggler menu-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+            </button>
+          </div>
+        </header>
+       
+      </div>
+
+      <main id="main" class="main">
+        <section class="section__title section--color- section--text- text-center">
+          <div class="container-lg">
+            <h2>Toll Fees</h2>
+          </div>
+        </section>
+        <section class="section__content section--color-">
+          <div class="container-lg">
+            <div class="row justify-content-center flex-row-reverse">
+              <div class="col-12 col-md-8">
+                <h4 class="text-center" style="text-align: center;">VEHICLE SPECIFICATIONS AND APPLICABLE TOLL</h4>
+                <table style="border-collapse: collapse; width: 100.473%; height: 220px;">
+                  <tbody>
+                    <tr style="height: 24px;">
+                      <td style="width: 9.1467%; height: 24px;"></td>
+                      <td style="width: 17.1742%; height: 24px; text-align: center;"><strong>Class 1</strong> Motorbike
+                        <p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-47474" src="{{ url_for('static', filename='images/motorbike.png') }}" alt="" width="67" height="41" /></p>
+                      </td>
+                      <td style="width: 18.2658%; height: 24px; text-align: center;"><strong>Class 2</strong> Light Vehicle
+                        <p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-47473" src="{{ url_for('static', filename='images/cars.png') }}" alt="" width="105" height="41" /></p>
+                      </td>
+                      <td style="width: 17.5823%; height: 24px; text-align: center;"><strong>Class 3</strong> Car & Trailer/Mini Bus
+                        <p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-47472" src="{{ url_for('static', filename='images/car-and-trailer.png') }}" alt="" width="158" height="41" /></p>
+                      </td>
+                      <td style="width: 19.548%; height: 24px;">
+                        <p style="text-align: center;"><strong>Class 4</strong> Lorry or Van</p>
+                        <p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-47471 aligncenter" src="{{ url_for('static', filename='images/van.png') }}" alt="" width="87" height="41" /></p>
+                      </td>
+                      <td style="width: 18.1818%; height: 24px;">
+                        <p style="text-align: center;"><strong>Class 5</strong> Heavy Goods Vehicle</p>
+                        <p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-47470 aligncenter" src="{{ url_for('static', filename='images/hgv.png') }}" alt="" width="148" height="41" /></p>
+                      </td>
+                    </tr>
+                    <tr style="height: 24px;">
+                      <td style="width: 9.1467%; height: 24px;"></td>
+                      <td style="width: 17.1742%; height: 24px; text-align: center;">
+                        <h4 style="text-align: center;">K1,000</h4>
+                      </td>
+                      <td style="width: 18.2658%; height: 24px; text-align: center;">
+                        <h4 style="text-align: center;">K1,000</h4>
+                      </td>
+                      <td style="width: 17.5823%; height: 24px; text-align: center;">
+                        <h4 style="text-align: center;">K2,000</h4>
+                      </td>
+                      <td style="width: 19.548%; height: 24px; text-align: center;">
+                        <h4 style="text-align: center;">K4,000</h4>
+                      </td>
+                      <td style="width: 18.1818%; height: 24px; text-align: center;">
+                        <h4 style="text-align: center;">K5,000</h4>
+                      </td>
+                    </tr>
+                    <tr style="height: 24px;">
+                      <td style="width: 9.1467%; height: 24px;"></td>
+                      <td style="width: 17.1742%; height: 24px; text-align: center;"></td>
+                      <td style="width: 18.2658%; height: 24px; text-align: center;"></td>
+                      <td style="width: 17.5823%; height: 24px; text-align: center;"></td>
+                      <td style="width: 19.548%; height: 24px; text-align: center;"></td>
+                      <td style="width: 18.1818%; height: 24px; text-align: center;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container-xl">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-3 footer-col">
+              <div class="footer-col-content">
+                
+                <div class="footer-logo">
+        <a href="https://www.aleatica.com/en/home-eng" target="_blank">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PlateSync Logo" width="68" height="68">
+        </a>
+    </div>
+                <ul id="menu-footer-site-links" class="menu list-unstyled">
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-48024"><a href="" class="track-link nav-link">Contact</a></li>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-47848"><a href="{{ url_for('create_application') }}" class="track-link nav-link">Apply Toll Pass</a></li>
+                 
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 footer-col">
+              <div class="footer-col-content">
+                <h3 class="footer-col-title">Keep in touch</h3>
+                <ul class="social list-inline">
+                  <li class="list-inline-item">
+                    <a href="https://en-gb.facebook.com/" title="Facebook" target="_blank">
+                      <i class="social-icon fa-brands fa-square-facebook"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://twitter.com/" title="Twitter" target="_blank">
+                      <i class="social-icon fa-brands fa-x-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="http://www.linkedin.com/" title="LinkedIn" target="_blank">
+                      <i class="social-icon fa-brands fa-linkedin"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app/0.9b0642.js') }}" id="app/0-js"></script>
+    <script src="{{ url_for('static', filename='js/jquery/jquery-migrate.min.js') }}?ver=3.4.0" id="jquery-migrate-js"></script>
+    <script src="{{ url_for('static', filename='js/app/app.9b0642.js') }}" id="app-js"></script>
+
+  </body>
+</html>

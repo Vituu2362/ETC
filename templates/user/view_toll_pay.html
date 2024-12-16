@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Toll Ticket</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #34495a, #2c3e50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 400px;
+            padding: 40px;
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .box h1 {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .box label {
+            color: #fff;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .box select {
+            border: 0;
+            background: none;
+            font-size: 16px;
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 10px;
+            width: 100%;
+            outline: none;
+            color: #fff;
+            background: #191919;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+
+        .box input[type="submit"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: #fff;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .box input[type="submit"]:hover {
+            background: #2ecc71;
+        }
+
+        .box input[type="submit"]:hover i {
+            transform: rotate(360deg);
+            transition: 0.5s;
+        }
+
+        .box input[type="submit"] i {
+            margin-right: 10px;
+            transition: 0.5s;
+        }
+
+        /* Keyframe for fadeIn effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1><i class="fas fa-ticket-alt"></i> Buy Toll Ticket</h1>
+        <form action="{{ url_for('view_toll_pay') }}" method="POST">
+            <label for="pass_type"><i class="fas fa-car"></i> Select Pass Type:</label>
+            <select name="pass_type" id="pass_type" required>
+                <option value="motorbike">Motorbike - K1,000</option>
+                <option value="car">Car - K1,000</option>
+                <option value="mini bus">Mini Bus - K2,000</option>
+                <option value="lorry">Lorry - K4,000</option>
+                <option value="heavy goods vehicle">Heavy Goods Vehicle - K5,000</option>
+            </select>
+            <br>
+
+            <label for="duration"><i class="fas fa-calendar-alt"></i> Select Duration:</label>
+            <select name="duration" id="duration" required>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="annually">Annually</option>
+            </select>
+            <br>
+
+            <input type="submit" value="Calculate Amount">
+        </form>
+    </div>
+</body>
+</html>

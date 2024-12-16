@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" >
+    <meta name="author" content="pixelgeeklab.com">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts  -->
+    <link href="{{ url_for('static', filename='fonts/quicksand.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owlcarousel/owl.carousel.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owlcarousel/owl.theme.css') }}" media="screen">
+    <link href="{{ url_for('static', filename='vendor/owl-carousel/owl.transitions.html') }}" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/flexslider/flexslider.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/chosen/chosen.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/magnific-popup/magnific-popup.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors/style.css') }}" media="screen">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-animate.css') }}">
+    
+    
+
+    <!-- Style Switcher-->
+    <link href="{{ url_for('static', filename='css/colors/default/style.html') }}" rel="stylesheet" id="layoutstyle">
+
+    <!-- Head libs -->
+    <script src="{{ url_for('static', filename='vendor/modernizr/modernizr.js') }}"></script>
+
+    <!--[if IE]>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/ie.css') }}">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+        <script src="{{ url_for('static', filename='vendor/respond/respond.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/excanvas/excanvas.js') }}"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tab.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/radio.css') }}">
+    <style>
+        .page-wrap {
+            max-width: 75rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            margin: 1.25rem 0;
+        }
+
+        input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+            font-size: 0.75em;
+            top: -2.25rem;
+            -webkit-transition: all 0.125s ease;
+            transition: all 0.125s ease;
+        }
+
+        .styled-input {
+            left:10px;
+            width: 90%;
+            margin: 2rem 0 1rem;
+            position: relative;
+        }
+
+        .styled-input label {
+            color: #999;
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            pointer-events: none;
+        }
+
+        input,
+        textarea {
+            position: relative;
+            height: 2.9em;
+            border: 0px solid #bebebe;
+            border-bottom-width: 1px;
+            width: 100%;
+        }
+
+        input ~ span,
+        textarea ~ span {
+            display: block;
+            width: 0;
+            height:1px;
+            background: #03a3e8;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            -webkit-transition: all 0.125s ease;
+            transition: all 0.125s ease;
+        }
+
+        input:focus,
+        textarea:focus { outline: 0; }
+
+        input:focus ~ span,
+        textarea:focus ~ span {
+            width: 100%;
+            -webkit-transition: all 0.075s ease;
+            transition: all 0.075s ease;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 15em;
+        }
+    </style>
+
+    
+    <script>
+    function onLoad() 
+    {
+        document.addEventListener("deviceready", deviceReady, false);
+    }
+    function deviceReady() 
+    {
+        document.addEventListener("backbutton", backButtonCallback, false);
+    }
+    function backButtonCallback() 
+    {
+        navigator.notification.confirm("Press again to exist",confirmCallback);
+    }
+    function confirmCallback(buttonIndex)
+    {
+        if(buttonIndex == 1)
+        {
+            navigator.app.backHistory();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    </script>
+
+</head>
+<body style="background-color: #EEEEEE" ng-controller="myappCtrl">
+
+    <header id="header">
+        <div class="header-top">
+            <div class="container" >
+                <a href="#offcanvas" class="uk-navbar-toggle" style="float:left;" data-uk-offcanvas>
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <nav>
+                    <div class="header-title">
+             <a href="{{ url_for('welcome') }}">
+            <img src="{{ url_for('static', filename='user_home_files/logo.png') }}" alt="Logo" width="50" height="50">
+            PlateSync
+        </a>
+        </div>
+                   
+                </nav>
+            </div>  
+        </div>
+    </header>
+    <br>
+    <div class="col-md1 simpleCart_shelfItem">
+               <div class="footer-left d-flex align-items-center">
+            <!-- Back Button -->
+            <a href="{{ url_for('billing') }}" class="btn btn-outline-primary me-3 d-flex align-items-center">
+                <img src="{{ url_for('static', filename='images/back.png') }}" alt="Back" width="28" height="28" class="me-2">
+                Back
+            </a>
+        </div>
+        <div style="font-weight: 100;font-size: 1.6em ;text-align: center;color: #000000">Apply New Pass</div>
+    </div>
+    <div class="col-md1 simpleCart_shelfItem">
+        <div class="container">
+            <div style="position: relative;">
+                <form id="addPassForm" action="{{ url_for('add_pass') }}" method="POST">
+    <div class="styled-input">
+        
+        <select name="pass_type" required>
+            <option value="">Select Pass Type</option>
+            <option value="Motorbike">Motorbike</option>
+            <option value="Car">Car</option>
+            <option value="Mini Bus">Mini Bus</option>
+            <option value="Bus">Bus</option>
+            <option value="Lorry">Lorry</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Abnormal Load">Abnormal Load</option>
+        </select>
+    </div>
+    <div class="styled-input">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+    </div>
+    <div class="styled-input">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+    </div>
+    <div class="styled-input">
+        
+        <select name="toll_name" required>
+            <option value="">Select Toll Name</option>
+            <option value="Chingeni Toll Plaza">Chingeni Toll Plaza</option>
+            <option value="Kalinyeke Toll Gate">Kalinyeke Toll Gate</option>
+        </select>
+    </div>
+    <div class="styled-input">
+        <label>Vehicle Number</label>
+        <input type="text" name="vehicle_number" placeholder="Vehicle Number" required>
+    </div>
+    <div class="styled-input">
+        <label>Owner Name</label>
+        <input type="text" name="owner_name" placeholder="Owner Name" required>
+    </div>
+    <div class="styled-input">
+        <label>Mobile Number</label>
+        <input type="text" name="mobile_number" placeholder="Mobile Number" required>
+    </div>
+    <div class="styled-input">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="Amount" required>
+    </div>
+    <button type="submit" style="background: #033e91; color: white;">Apply</button>
+    <div id="responseMessage"></div>
+</form>
+
+<script>
+    document.getElementById('addPassForm').addEventListener('submit', function (e) {
+    e.preventDefault();  // Prevent the default form submission
+
+    const formData = new FormData(this);
+
+    fetch('/add-pass', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())  // Parse the JSON response
+    .then(data => {
+        const messageElement = document.getElementById('responseMessage');
+        if (data.message) {
+            messageElement.innerText = data.message;  // Show success message
+            messageElement.style.color = 'green';
+        } else if (data.error) {
+            messageElement.innerText = 'Error: ' + data.error;  // Show error message
+            messageElement.style.color = 'red';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An unexpected error occurred.');
+    });
+});
+</script>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

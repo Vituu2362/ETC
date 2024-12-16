@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en-US" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PlateSync | A Better Way For Your Journey</title>
+    <meta name="description" content="Plan a faster journey, check vehicle prices, and pay your toll online through the PlateSync website." />
+    <link rel='stylesheet' id='app/0-css' href="{{ url_for('static', filename='css/app.9b0642.css') }}" media='all' />
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}?ver=3.7.1" id="jquery-core-js"></script>
+  </head>
+  <body class="home page wp-embed-responsive">
+    <div id="app">
+      <a id="skip-to-content" class="visually-hidden-focusable" href="index.html#main">Skip to main content</a>
+      <div class="header-wrapper sticky-top">
+        <div class="container-fluid infobar">
+          <div class="container-xl">
+
+            <div class="row">
+              <div class="col-12 col-lg-7 d-flex align-items-center">
+    <div class="row flex-nowrap ticker-box flex-grow-1 overflow-hidden py-2" role="alert">
+        <div class="ticker-intro col">News & Weather</div>
+        <div class="ticker-container col">
+            <div class="ticker-wrapper">
+                <div class="ticker-wrap">
+                    <div class="ticker">
+                        <div class="ticker__item">
+                            <p style="color: red;">Weather in {{ weather.name }}: {{ weather.weather[0].description }}, Temp: {{ weather.main.temp }}°C</p>
+                        </div>
+                        <div class="ticker__item">
+                          {% if news and news.articles and news.articles|length > 0 %}
+    <p style="color: green;">Latest News: {{ news.articles[0].title }}</p>
+{% else %}
+    <p style="color: red;">No news available at the moment.</p>
+{% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+              <div class="col-12 col-lg-5 d-flex align-items-center justify-content-end pe-0">
+                <a class="btn btn-login px-1" href="{{ url_for('register') }}" target="_blank">Sign Up <i class="fa-solid fa-user-large"></i></a>
+                <a class="btn btn-login px-1" href="{{ url_for('login') }}" target="_blank">Login <i class="fa-solid fa-user-large"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+<header style="margin-top: 0;">
+<div class="navbar navbar-expand-lg container-xl">
+    <a class="navbar-brand track-link d-flex flex-column align-items-center" href="{{ url_for('loader_welcome') }}" title="PlateSync">
+        <!-- Image logo placed above the text -->
+        <img src="{{ url_for('static', filename='user_home_files/logo.png') }}" alt="PlateSync Logo" width="72" height="72">
+
+    </a>
+
+    <div class="navbar-collapse-wrapper navbar-collapse order-last order-xl-0">
+      <nav class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" aria-label="Primary">
+        <div class="navbar-collapse-container d-flex align-items-center">
+          <ul id="menu-primary" class="navbar-nav mb-auto mb-lg-0" style="margin-top: 0;">
+
+            <li class="nav-item">
+
+              <a href="{{ url_for('about')}}" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('create_dept') }}" class="nav-link">E-Wallet</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('price_table') }}" class="nav-link">Toll Fees</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('location') }}" class="nav-link">Receipt</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('developer') }}" class="nav-link">Developer</a>
+            </li>
+          </ul>
+
+          <!-- Display Sign Up and Login buttons for mobile -->
+          <div class="d-lg-none">
+            <a href="{{ url_for('register') }}" class="btn btn-outline-light mb-3" target="_blank">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-light mb-3" target="_blank">Login</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+        <div id="particles-js"></div> <!-- Particle container -->
+    <div class="overlay"></div> <!-- Optional overlay if you want to darken the background -->
+    <div class="container"></div>
+      </div>
+      <main id="main" class="main">
+
+        <section class="section__banner flud-container">
+
+          <!-- Slider main container -->
+          <div class="swiper" data-navigation="true" data-loop="true" data-autoplay="true">
+
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+
+              <!-- Slides -->
+              <div class="swiper-slide">
+
+                <picture>
+
+                  <source media="(max-width:768px)" srcset="{{ url_for('static', filename='images/mobilebanner-experience.jpg') }}">
+
+                  <img class="" src="{{ url_for('static', filename='images/experienceAW-scaled.jpg') }}" alt="Home image">
+                </picture>
+
+                <div class="banner-gradient"></div>
+
+                <div class="banner-content" style="background-image: url('{{ url_for('static', filename='images/banner-aleatica.a441ab.svg') }}');">
+
+                  <div class="banner-text">
+                  	
+                    <h1>Welcome to PlateSync</h1>
+
+                    <div class="d-none d-md-block">
+                      <p>An Electronic Toll Collection System</p>
+                    </div>
+
+                    <div class="d-block d-md-none"></div>
+
+                    <ul class="list-inline mb-1">
+                      <li class="list-inline-item">
+                        <a href="{{ url_for('login') }}" class="btn btn-outline-light">Get Started</a>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                  </div>
+
+              </div>
+              
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </section>
+        
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/swiper-bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    particlesJS('particles-js',
+    {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.swiper', {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      });
+    </script>
+
+<script>
+    async function fetchWeather() {
+        const apiKey = 'b9a10895372dd47e7b0871f75491c038'; // Replace with your OpenWeatherMap API key
+        const city = 'Mangochi,MW';  // Change to any Malawi city you want
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Check if the API returned valid weather data
+            if (data && data.weather && data.weather.length > 0 && data.main) {
+                const weatherInfo = `Weather in ${data.name}: ${data.weather[0].description}, Temp: ${data.main.temp}°C`;
+                
+                // Update the ticker with the weather information
+                document.getElementById('weather-info').innerText = weatherInfo;
+            } else {
+                document.getElementById('weather-info').innerText = 'Weather information is not available at the moment.';
+            }
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+            document.getElementById('weather-info').innerText = 'Failed to retrieve weather data.';
+        }
+    }
+
+    // Call the fetchWeather function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchWeather);
+</script>
+<script>
+    async function fetchNews() {
+        const apiKey = '5e38df53c0f8427e80efe099c7d11048'; // Replace with your NewsAPI key
+        const country = 'mw'; // Malawi country code
+        const url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data && data.articles && data.articles.length > 0) {
+                let newsHTML = '';
+                
+                // Loop through the articles and display the first 5 news items
+                data.articles.slice(0, 5).forEach(article => {
+                    newsHTML += `<div class="news-item">
+                                    <a href="${article.url}" target="_blank">${article.title}</a>
+                                    <p>${article.description || ''}</p>
+                                 </div>`;
+                });
+
+                // Update the DOM element with the news items
+                document.getElementById('news-info').innerHTML = newsHTML;
+            } else {
+                document.getElementById('news-info').innerText = 'No news available at the moment.';
+            }
+        } catch (error) {
+            console.error('Error fetching news data:', error);
+            document.getElementById('news-info').innerText = 'Failed to retrieve news data.';
+        }
+    }
+
+    // Call the fetchNews function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchNews);
+</script>
+
+
+
+  </body>
+</html>

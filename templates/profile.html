@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        .mail {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .middle-container {
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .round-div {
+            background-color: #007bff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dollar {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .current-balance {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .amount {
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .dollar-sign {
+            font-size: 14px;
+            vertical-align: super;
+        }
+
+        .recent-border,
+        .wishlist-border,
+        .fashion-studio-border {
+            padding: 10px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .recent-orders,
+        .wishlist,
+        .fashion-studio {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card">
+        <div class="top-container">
+            <img src="https://i.imgur.com/G1pXs7D.jpg" class="img-fluid profile-image" alt="Profile Image">
+            <div class="ml-3">
+                <h5 class="name">Vitumbiko Sibale</h5>
+                <p class="mail">vituluthersibale@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+            <div class="dollar-div px-3">
+                <div class="round-div"><i class="fa fa-dollar-sign dollar"></i></div>
+            </div>
+            <div class="d-flex flex-column text-right mr-2">
+                <span class="current-balance">Current Balance</span>
+                <span class="amount"><span class="dollar-sign">$</span>1476</span>
+            </div>
+        </div>
+
+        <div class="recent-border mt-4">
+            <span class="recent-orders"></span>
+        </div>
+        <div class="wishlist-border pt-2">
+            <span class="wishlist"></span>
+        </div>
+        <div class="fashion-studio-border pt-2">
+            <span class="fashion-studio"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

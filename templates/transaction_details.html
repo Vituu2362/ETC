@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Details</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .info strong {
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Transaction Details</h1>
+        
+        <div class="info">
+            <p><strong>Amount:</strong> MWK {{ details.amount }}</p>
+            <p><strong>Charge ID:</strong> {{ details.charge_id }}</p>
+            <p><strong>Reference ID:</strong> {{ details.ref_id }}</p>
+            <p><strong>Transaction ID:</strong> {{ details.trans_id }}</p>
+            <p><strong>Status:</strong> {{ details.status }}</p>
+            <p><strong>Mobile:</strong> {{ details.mobile }}</p>
+            <p><strong>Operator:</strong> {{ details.mobile_money.name }}</p>
+            <p><strong>Country:</strong> {{ details.mobile_money.country }}</p>
+            <p><strong>Transaction Charges:</strong> MWK {{ details.transaction_charges.amount }}</p>
+            <p><strong>Created At:</strong> {{ details.created_at }}</p>
+            <p><strong>Completed At:</strong> {{ details.completed_at }}</p>
+        </div>
+
+        <a href="{{ url_for('billing') }}">Back to Payment</a>
+    </div>
+
+</body>
+</html>

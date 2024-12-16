@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay for Toll Ticket</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #34495a, #2c3e50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 400px;
+            padding: 40px;
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .box h1 {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .box p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .box button {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 40px;
+            outline: none;
+            color: #fff;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .box button:hover {
+            background: #3498db;
+        }
+
+        .box button i {
+            margin-right: 10px;
+            transition: 0.5s;
+        }
+
+        .box button:hover i {
+            transform: rotate(360deg);
+        }
+
+        .transfer-details {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Keyframe for fadeIn effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1><i class="fas fa-credit-card"></i> Pay for Toll Ticket</h1>
+        <p>Total Amount: MWK {{ amount }}</p>
+        <button onclick="makePayment()"><i class="fas fa-money-bill-wave"></i> Pay Now</button>
+        <div class="transfer-details" id="transfer-details"></div>
+    </div>
+
+    <!-- Adding the wrapper div to ensure it exists -->
+    <div id="wrapper"></div>
+
+    <script src="https://in.paychangu.com/js/popup.js"></script>
+    <script>
+ function makePayment() {
+    PaychanguCheckout({
+        "public_key": "PUB-TEST-rzghhuU4PO74u8F9FucPO5VPlHkyFB2T",
+        "tx_ref": "{{ tx_ref }}",
+        "amount": "{{ amount }}",
+        "currency": "MWK",
+        "callback_url": "{{ url_for('payment_success', _external=True) }}",  // This is where the payment response is handled
+        "return_url": "{{ url_for('loader_welcome', _external=True) }}",
+        "customer": {
+            "email": "{{email}}",
+            "first_name": "{{username}}",
+            
+        },
+        "customization": {
+            "title": "Toll Ticket Purchase",
+            "description": "Payment for toll ticket ({{ tx_ref }})"
+        }
+    });
+}
+
+
+    function fetchTransferDetails(chargeId) {
+        fetch(`/fetch_transfer/${chargeId}`)
+            .then(response => response.json())
+            .then(data => {
+                const detailsDiv = document.getElementById('transfer-details');
+                if (data.error) {
+                    detailsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                } else {
+                    detailsDiv.innerHTML = `
+                        <p><strong>Transaction Status:</strong> ${data.status}</p>
+                        <p><strong>Amount:</strong> MWK ${data.amount}</p>
+                        <p><strong>Mobile:</strong> ${data.mobile}</p>
+                    `;
+                }
+                detailsDiv.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error fetching transfer details:', error);
+            });        }
+
+        function buildIframe(A, o) {
+            let e = document.getElementById("wrapper"),
+                g = document.createElement("iframe");
+
+            if (!e) {
+                console.error("Wrapper element not found");
+                return;
+            }
+
+            setAttributes(g, o);
+            css(g, { position: "fixed", top: 0, bottom: 0, right: 0, width: "100%", border: "none", margin: 0, padding: 0, overflow: "hidden", "z-index": 9999, height: "100%", "overflow-y": "hidden" });
+            showSpinner("undefined");
+
+            if (document.readyState === "complete") {
+                g.onload = function () {
+                    showSpinner("show");
+                };
+                e.appendChild(g);
+            }
+        }
+    </script>
+</body>
+</html>

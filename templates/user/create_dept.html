@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Wallet</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: #34495a;
+        }
+
+        .box {
+            width: 400px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #191919;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .box h1 {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .box p {
+            color: #fff;
+        }
+
+        .box input[type="number"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: #fff;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+
+        .box input[type="number"]:focus {
+            width: 280px;
+            border-color: #2ecc71;
+        }
+
+        .operators {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .operator {
+            cursor: pointer;
+            border: 2px solid #3498db;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .operator:hover {
+            border-color: #2ecc71;
+            background-color: #2ecc71;
+        }
+
+        .operator img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .operator p {
+            color: #fff;
+            margin: 0;
+        }
+
+        .box button {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: #fff;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .box button:hover {
+            background: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1><strong>Add Money</strong></h1>
+
+        {% if operators %}
+            <p>Enter Amount to deposit:</p>
+            <form action="{{ url_for('add_money') }}" method="POST">
+                <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+<p>Select your mobile operator:</p>
+                <div class="operators">
+    {% for operator in operators %}
+        <div class="operator" onclick="selectOperator('{{ operator['id'] }}')">
+            {% if operator['logo'] %}
+                <img src="{{ operator['logo'] }}" alt="{{ operator['name'] }}">
+            {% else %}
+                <!-- Check for operator name or unique ID to set default logo -->
+                {% if operator['name'] == 'Airtel Money' %}
+                    <img src="{{ url_for('static', filename='images/airtel.png') }}" alt="Airtel Money Logo">
+                {% elif operator['name'] == 'TNM Mpamba' %}
+                    <img src="{{ url_for('static', filename='images/tnm.png') }}" alt="TNM Mpamba Logo">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/default-logo.png') }}" alt="Default Operator Logo"> <!-- In case there's a third operator in the future -->
+                {% endif %}
+            {% endif %}
+            <p>{{ operator['name'] }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+                <input type="hidden" id="operator" name="operator" required>
+                <button type="submit">Add Money</button>
+            </form>
+        {% else %}
+            <p>No operators available at this time.</p>
+        {% endif %}
+    </div>
+
+    <script>
+        function selectOperator(operatorId) {
+            document.getElementById('operator').value = operatorId;
+            alert('Selected Operator: ' + operatorId);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to PlateSync</title>
+    <!-- Add any necessary CSS styles or links to external stylesheets -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/background_image.jpg'); /* Assuming background_image.jpg is in the 'static' folder */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Ensures full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .container a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .container a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        .header img {
+            height: 50px; /* Adjust as needed */
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <h1>Welcome to PlateSync</h1>
+        </div>
+        <p>Choose an option below:</p>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Sign Up</a>
+        <!-- Add more options as needed -->
+    </div>
+</body>
+</html>

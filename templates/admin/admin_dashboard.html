@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Admin Dashboard</title>
+      
+      <!-- Using Flask's `url_for()` to reference static files -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/icons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/responsee.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='owl-carousel/owl.carousel.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='owl-carousel/owl.theme.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+      <!-- CUSTOM STYLE -->      
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/template-style.css') }}">
+      <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext" rel="stylesheet">  
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Moul&family=Rubik+Distressed&display=swap" rel="stylesheet">
+
+      <!-- Using Flask's `url_for()` for JS files -->
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.8.3.min.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>   
+   </head>
+
+<style>
+  .hover-container {
+    position: relative;
+    display: inline-block;
+    width: auto; /* Keep the original image width */
+  }
+
+  .hover-container img {
+    display: block;
+    width: 100%; /* Ensures image takes up full width of its container */
+    height: 60%; /* Keeps the aspect ratio of the image */
+    max-width: 82%; /* Makes sure the image doesn't exceed its container */
+  }
+
+  .hover-container .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .hover-container:hover .hover-text {
+    opacity: 1;
+  }
+
+  .hover-container:hover img {
+    filter: brightness(0.7);
+  }
+</style>
+
+<body class="size-1520 primary-color-red background-dark">
+   <!-- HEADER -->
+   <header class="grid">
+      <!-- Top Navigation -->
+      <nav class="s-12 grid background-none background-primary-hightlight">
+         <!-- logo -->
+         <a href="{{ url_for('welcome') }}" class="s-12 m-6 l-3 padding-1x vertical-center margin-bottom background-dark text-uppercase">
+            <h3 class="text-strong text-size-40 text-line-height-1" style="font-family: 'Rubik Distressed', System-ui;">PlateSync</h3>
+         </a>
+
+         <div class="top-nav s-12 l-9"> 
+            <ul class="top-ul right chevron">
+               <li><a href="{{ url_for('welcome') }}">Home</a></li>
+               <li><a href="{{ url_for('price_table') }}">Toll Fees</a></li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   
+   <!-- MAIN -->
+   <main role="main">
+      <section>
+        <h3 class="text-strong text-size-40 text-line-height-1" style="font-family: 'Rubik Distressed', System-ui; text-align: center;">Admin Dashboard</h3>
+
+      </section>
+      <!-- SECTION 1 --> 
+      <section class="grid margin text-center">
+<a href="{{ url_for('create_dept') }}" class="s-12 m-6 l-3 padding-2x vertical-center margin-bottom background-red">
+    <i class="fas fa-user text-size-60 text-white center margin-bottom-15"></i>
+    <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-30 text-uppercase">Add Toll User</h3>
+</a>
+
+
+         <a href="{{ url_for('view_all_result') }}" class="s-12 m-6 l-3 padding-2x vertical-center margin-bottom background-orange">
+            <i class="fas fa-id-card text-size-60 text-white center margin-bottom-15"></i>
+            <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-30 text-uppercase">All Toll Pass Report</h3>
+         </a>
+
+
+         <a href="{{ url_for('create_bus') }}" class="s-12 m-6 l-3 padding-2x vertical-center margin-bottom background-aqua">
+            <i class="fas fa-road text-size-60 text-white center margin-bottom-15"></i>
+            <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-30 text-uppercase">Add Toll Gate</h3>
+         </a>
+
+         <a href="/" class="s-12 m-6 l-3 padding-2x vertical-center margin-bottom background-primary">
+            <i class="fas fa-car text-size-60 text-white center margin-bottom-15"></i>
+            <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-30 text-uppercase">Add Vehicle</h3>
+         </a>
+         <a href="{{ url_for('view_toll_geo_user') }}" class="s-12 m-6 l-3 padding-2x vertical-center margin-bottom background-aqua">
+            <i class="fas fa-map-marker-alt text-size-60 text-white center margin-bottom-15"></i>
+            <h3 class="text-strong text-size-20 text-line-height-1 margin-bottom-30 text-uppercase">Toll Location & Rates</h3>
+         </a>
+      </section>
+                                                                        
+      <!-- Using Flask's `url_for()` for JS files -->
+      <script type="text/javascript" src="{{ url_for('static', filename='js/responsee.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='owl-carousel/owl.carousel.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/template-scripts.js') }}"></script>
+
+   </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlateSync</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/fontawesome/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owlcarousel/owl.carousel.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owlcarousel/owl.theme.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/flexslider/flexslider.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/chosen/chosen.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/magnific-popup/magnific-popup.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors/style.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-animate.css') }}">
+    <script src="{{ url_for('static', filename='js/angular-1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/angular_cookies.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tab.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/radio.css') }}">
+    <style>
+        .page-wrap {
+            max-width: 75rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            margin: 1.25rem 0;
+        }
+
+        .styled-input {
+            left: 10px;
+            width: 90%;
+            margin: 2rem 0 1rem;
+            position: relative;
+        }
+
+        .styled-input label {
+            color: #999;
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.25s ease;
+            pointer-events: none;
+        }
+
+        input,
+        textarea {
+            position: relative;
+            height: 2.9em;
+            border: 0;
+            border-bottom-width: 1px;
+            width: 100%;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 15em;
+        }
+
+        .navbar {
+            background-color: #3c8a01;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 1em;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-family: Quicksand, sans-serif;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a img {
+            margin-right: 0.5em;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .header-title {
+            font-family: Arial, sans-serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-title img {
+            margin-right: 0.5em;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #3c8a01;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer img {
+            width: 48px;
+            height: 48px;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+
+<body style="background-color: #EEEEEE" ng-controller="myappCtrl" onload="onLoad()" class="ng-scope loaded">
+
+    <header class="navbar">
+        <div class="header-title">
+        	 <a href="{{ url_for('welcome') }}">
+            <img src="{{ url_for('static', filename='user_home_files/logo.png') }}" alt="Logo" width="48" height="48">
+            PlateSync
+        </a>
+        </div>
+        <nav>
+            <a href="{{ url_for('admin_update_info') }}">
+                <img src="{{ url_for('static', filename='user_home_files/man.png') }}" alt="User Profile" width="38" height="38"> User Profile
+            </a>
+            <a href="#" ng-click="user_logout()">
+                <img src="{{ url_for('static', filename='user_home_files/logout.png') }}" alt="Logout" width="38" height="38"> Logout
+            </a>
+        </nav>
+    </header>
+
+    <br>
+
+    <div class="col-md1 simpleCart_shelfItem">
+        <div style="font-weight: 100; font-size: 1.6em; text-align: center; color: #000000">User Dashboard</div>
+    </div>
+
+    <div class="content" style="margin-bottom: 5em">
+        <div class="container">
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/wallet.png') }}">
+                    <a href="{{ url_for('create_dept') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">Add Money</a>
+                </div>
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/bus-ticket(1).png') }}">
+                    <a href="{{ url_for('view_toll_pay') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">Buy Toll Ticket</a>
+                </div>
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/bus-ticket(1).png') }}">
+                    <a href="{{ url_for('my_ticket') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">My Ticket</a>
+                </div>
+            </div>
+                <div class="row" style="margin-top: 30px;">
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/bus.png') }}">
+                    <a href="{{ url_for('create_application') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">Apply Toll Pass</a>
+                </div>
+
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/bus-ticket.png') }}">
+                    <a href="{{ url_for('my_application') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">My Toll Pass</a>
+                </div>
+                <div class="col-md-4">
+                    <img style="margin-left: 30px; width: 64px; height: 64px;" src="{{ url_for('static', filename='user_home_files/bus(1).png') }}">
+                    <a href="{{ url_for('view_toll_geo_user') }}" style="font-family: Arial, sans-serif; border-radius: 2px; box-shadow: 3px 3px 3px 3.5px #B6B6B4; margin: 1em 0 3em 1em; color: rgb(55, 71, 79); font-size: 1.11em; font-weight: bold; padding: 0.3em">Toll Location</a>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer d-flex justify-content-between align-items-center">
+        <div class="footer-left d-flex align-items-center">
+            <!-- Back Button -->
+            <a href="{{ url_for('welcome') }}" class="btn btn-outline-primary me-3 d-flex align-items-center">
+                <img src="{{ url_for('static', filename='images/back.png') }}" alt="Back" width="28" height="28" class="me-2">
+                Back
+            </a>
+            <!-- Logo and Description -->
+            <img src="{{ url_for('static', filename='user_home_files/logo.png') }}" alt="Logo" width="48" height="48" class="me-2">
+            <span><strong>Electronic Toll Collection System Dashboard</strong></span>
+        </div>
+        
+        <div class="footer-right">
+            &copy; 2024 All rights reserved
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery.validation/jquery.validation.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/owlcarousel/owl.carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/flexslider/jquery.flexslider-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/countdown/countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/chosen/chosen.jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/gmap/gmap3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/func.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app/app.js') }}"></script>
+
+</body>
+
+</html>

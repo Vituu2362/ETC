@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paychangu Payment</title>
+    <script src="https://in.paychangu.com/js/popup.js"></script>
+</head>
+<body>
+    <h3>Processing your payment of MWK {{ amount }}...</h3>
+    
+    <div id="wrapper"></div> <!-- Ensure there's an element with id="wrapper" for the iframe -->
+    
+    <script>
+        // Wait until the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if PaychanguCheckout is available
+            if (typeof PaychanguCheckout === 'undefined') {
+                console.error("PaychanguCheckout is not loaded properly.");
+                return;
+            }
+            // Proceed with payment if PaychanguCheckout is available
+            makePayment({{ amount }});
+        });
+
+        function makePayment(amount) {
+            // Generate a unique transaction reference
+            const tx_ref = '' + Math.floor((Math.random() * 1000000000) + 1);
+
+            // Ensure the Paychangu checkout function is loaded before calling it
+            if (typeof PaychanguCheckout === 'function') {
+                PaychanguCheckout({
+                    "public_key": "PUB-TEST-rzghhuU4PO74u8F9FucPO5VPlHkyFB2T",
+                    "tx_ref": tx_ref,
+                    "amount": amount,
+                    "currency": "MWK",
+                    "callback_url": "{{ url_for('billing', _external=True) }}",
+                    "return_url": "{{ url_for('create_dept', _external=True) }}",
+                    "customer": {
+                        "email": "user@example.com",  // Replace with actual user email
+                        "first_name": "John",
+                        "last_name": "Doe",
+                    },
+                    "customization": {
+                        "title": "Add Money to Wallet",
+                        "description": "Deposit " + amount + " MWK"
+                    },
+                    "meta": {
+                        "uuid": "uuid",
+                        "response": "Response"
+                    }
+                });
+            } else {
+                console.error("PaychanguCheckout function is not available.");
+            }
+        }
+    </script>
+</body>
+</html>
