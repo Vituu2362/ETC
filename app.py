@@ -33,6 +33,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(100), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
+    user_mobile = db.Column(db.String(15), unique=True, nullable=False)  # New user_mobile field
     # Relationship to Wallet model
     wallet = db.relationship('Wallet', back_populates='user', uselist=False)
 
@@ -44,6 +45,7 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
 
 # User loader function required by Flask-Login
 @login_manager.user_loader
@@ -358,7 +360,7 @@ def my_ticket():
 @login_required
 def billing():
     passes = Pass.query.all()  # Get all passes or filter as needed
-    return render_template('user/billing.html', username=current_user.username, email=current_user.email, passes=passes)
+    return render_template('user/billing.html', username=current_user.username, email=current_user.email, user_mobile=current_user.user_mobile, passes=passes)
 
 
 @app.route('/edit_pass/<int:pass_id>', methods=['GET', 'POST'])
@@ -392,7 +394,7 @@ def edit_pass(pass_id):
 @login_required
 def profile():
     x = "some value"
-    return render_template('user/profile.html', x=x, username=current_user.username, email=current_user.email)
+    return render_template('user/profile.html', x=x, username=current_user.username, email=current_user.email, user_mobile=current_user.user_mobile)
 
 @app.route('/create_application')
 @login_required
@@ -511,17 +513,25 @@ def register():
         email = request.form['email']
         username = request.form['username']
         password = request.form['password']
+        user_mobile = request.form['user_mobile']  # Capture the user_mobile from the form
+
         existing_user = User.query.filter_by(email=email).first()
+        
         if existing_user:
             flash('Email already exists. Please use a different one.', 'error')
         else:
-            new_user = User(email=email, username=username)
-            new_user.set_password(password)
+            # Create a new user with user_mobile included
+            new_user = User(email=email, username=username, user_mobile=user_mobile)
+            new_user.set_password(password)  # Hash the password
+            
             db.session.add(new_user)
             db.session.commit()
+            
             flash('Account created successfully. You can now log in.', 'success')
             return redirect(url_for('login'))
+
     return render_template('register.html')
+
 
 @app.route('/dashboard')
 @login_required

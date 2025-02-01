@@ -329,7 +329,7 @@
               <ul class="list-group">
                 <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">User Name:</strong> &nbsp; {{ username }}</li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Password:</strong> &nbsp;*******<i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Change Password"></i></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; 0883680685</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; {{ user_mobile}}</li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ email }}</li>
                 
               </ul>
@@ -405,6 +405,9 @@
                 </li>
                 <li class="nav-item">
                   <a href="{{ url_for('price_table') }}" class="nav-link pe-0 text-muted" target="_blank">Receipts</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ url_for('developer') }}" class="nav-link pe-0 text-muted" target="_blank">Developer</a>
                 </li>
               </ul>
             </div>

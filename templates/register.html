@@ -16,33 +16,36 @@
 
             <div class="form-value">
                 
-                <form action="{{ url_for('register') }}" method="post">
-                    <div class="header">
-                        
-                        <h2>Register</h2>
-                    </div>
-                    <div class="inputbox"> 
-                        <ion-icon name="mail-outline"></ion-icon> 
-                        <input type="email" name="email" required>
-                        <label>Email</label>
-                    </div>
-                    <div class="inputbox"> 
-                        <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" name="username" required>
-                        <label>Username</label>
-                    </div>
-                    <div class="inputbox"> 
-                        <ion-icon name="lock-closed-outline"></ion-icon> 
-                        <input type="password" name="password" required> 
-                        <label>Password</label> 
-                    </div>
-                    <button type="submit">Register</button>
-                    <div class="register">
-                        <p>Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
+               <form action="{{ url_for('register') }}" method="post">
+    <div class="header">
+        <h2>Register</h2>
+    </div>
+    <div class="inputbox"> 
+        <ion-icon name="mail-outline"></ion-icon> 
+        <input type="email" name="email" required>
+        <label>Email</label>
+    </div>
+    <div class="inputbox"> 
+        <ion-icon name="person-outline"></ion-icon>
+        <input type="text" name="username" required>
+        <label>Username</label>
+    </div>
+    <div class="inputbox"> 
+        <ion-icon name="call-outline"></ion-icon>
+        <input type="text" name="user_mobile" required>
+        <label>Mobile Number</label>
+    </div>
+    <div class="inputbox"> 
+        <ion-icon name="lock-closed-outline"></ion-icon> 
+        <input type="password" name="password" required> 
+        <label>Password</label> 
+    </div>
+    <button type="submit">Register</button>
+    <div class="register">
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
+    </div>
+</form>
 
-                    </div>
-
-                </form>
             </div>
 
         </div>
@@ -54,7 +57,7 @@
         }
         .header img {
             height: 60px; /* Adjust as needed */
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .header h2 {
             margin: 0;
